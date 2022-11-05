@@ -18,7 +18,7 @@ menuHamIcon.addEventListener('click' , toggleMobileMenu);
 carritoCompras.addEventListener('click' , toggleCarritoAside);
 productDetailCloseIcon.addEventListener('click' , closeProductDetailAside);
 asideCloseIcon.addEventListener('click' , closeAsideCloseIcon);
-mobileMenu.addEventListener('click', closeMobileMenu)
+mobileMenu.addEventListener('click', closeMobileMenu);
 
 
 function toggleDesktopMenu() {
@@ -28,6 +28,8 @@ function toggleDesktopMenu() {
     }
 
     desktopMenu.classList.toggle('inactive');
+
+    closeProductDetailAside(); 
 }
 
 function toggleMobileMenu() {
@@ -70,14 +72,21 @@ function openProductDetailAside() {
     if (!isAsideClosed) {
         aside.classList.add('inactive');
     }
+
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    if (!isDesktopMenuClosed) {
+        desktopMenu.classList.add('inactive');
+    }
 }
 
 function closeProductDetailAside () {
     productDetailContainer.classList.add('inactive');
+
 }
 
 function closeAsideCloseIcon () {
     aside.classList.add('inactive');
+
 }
 
 function closeMobileMenu () {
